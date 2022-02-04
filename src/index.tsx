@@ -60,6 +60,7 @@ table {
 }
 body {
   font-weight: 300;
+  font-size: 16px;
   font-family: 'Source Sans Pro', sans-serif;
   color:black;
   line-height: 1.2;
@@ -67,6 +68,9 @@ body {
 a {
   text-decoration:none;
   color:inherit;
+}
+button {
+  border: none;
 }
 `;
 ReactDOM.render(
