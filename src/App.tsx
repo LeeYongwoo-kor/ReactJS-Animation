@@ -5,6 +5,10 @@ import { useState } from "react";
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
+`;
+
+const Content = styled.div`
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,27 +83,6 @@ function App() {
   return (
     <>
       <Wrapper>
-        <Grid>
-          {[1, 2, 3, 4].map((num) => {
-            return (
-              <Box
-                onClick={() => setId(num)}
-                whileHover={{ scale: 1.1 }}
-                key={num}
-                layoutId={num + ""}
-              >
-                {num === 2 ? (
-                  <>{showing ? <Circle layoutId="circle" /> : null}</>
-                ) : num === 3 ? (
-                  <>{!showing ? <Circle layoutId="circle" /> : null}</>
-                ) : null}
-              </Box>
-            );
-          })}
-        </Grid>
-        <Footer>
-          <Button onClick={() => toggleButton()}>Switch</Button>
-        </Footer>
         <AnimatePresence>
           {id ? (
             <Overlay
@@ -113,6 +96,30 @@ function App() {
             </Overlay>
           ) : null}
         </AnimatePresence>
+        <Content>
+          <Grid>
+            {[1, 2, 3, 4].map((num) => {
+              return (
+                <Box
+                  onClick={() => setId(num)}
+                  whileHover={{ scale: 1.1 }}
+                  key={num}
+                  layoutId={num + ""}
+                >
+                  {num === 2 ? (
+                    <>{showing ? <Circle layoutId="circle" /> : null}</>
+                  ) : num === 3 ? (
+                    <>{!showing ? <Circle layoutId="circle" /> : null}</>
+                  ) : null}
+                </Box>
+              );
+            })}
+          </Grid>
+        </Content>
+
+        <Footer>
+          <Button onClick={() => toggleButton()}>Switch</Button>
+        </Footer>
       </Wrapper>
     </>
   );
